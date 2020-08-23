@@ -31,3 +31,6 @@ function optimizeLevelCode(levelCode) {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// A916P0A1P0A1C0J1G0J1C0A1C0J1C0A1C0J1C0A1C0D9F1C0A1P0A1P0Q
+// A906ZZ1A07A6ZZZF9ZE

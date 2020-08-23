@@ -8,9 +8,22 @@ body {
     background: #112;
 }
 
+i {
+    margin-right: 0.2em;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #223;
+}
+
 main {
-    margin: auto;
     width: 800px;
+    margin: auto;
+}
+
+.optimizer > * {
+    margin: 1rem;
 }
 
 label {
@@ -28,20 +41,20 @@ input, textarea, button {
 }
 
 textarea {
-    background: #223;
-    border: none;
-    max-width: 100%;
     min-width: 100%;
-    max-height: 10rem;
+    max-width: 100%;
     min-height: 2.5rem;
+    max-height: 10rem;
+    border: none;
+    background: #223;
 }
 
 button {
     width: 100%;
-    background: #334;
-    color: #eee;
     padding: 0.7rem;
+    color: #eee;
     border: 2px solid #334;
+    background: #334;
 }
 
 button:active {
@@ -49,22 +62,25 @@ button:active {
     background: #223;
 }
 
-div.input-wrapper, div.output-wrapper {
-    margin: 2rem;
-}
-
 .optimizer {
-    height: 100vh;
     display: flex;
     flex-flow: column;
     justify-content: center;
+    min-height: 100vh;
 }
 
+.about {
+    font-family: sans-serif;
+}
+
+.about > p {
+    line-height: 1.4em;
+    color: #778;
+}
 
 @media (max-width: 1000px) {
     main {
         width: 100%;
-        margin-top:0;
+        margin-top: 0;
     }
-
 }
