@@ -167,6 +167,17 @@ export class Level {
         // convert back to 1d array
         tiles = [].concat(...tileCollection);
 
+        // if tiles have no shape or material, set to default
+        tiles.forEach((tile) => {
+            if (tile.shape === null) {
+                tile.shape = Shape.empty;
+            }
+
+            if (tile.material === null) {
+                tile.material = Material.block;
+            }
+        });
+
         return new this(maxBulletBounceCount, tiles);
     }
 
