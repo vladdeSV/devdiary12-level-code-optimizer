@@ -3,8 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Bunker Bustin' Level Code Optimizer</title>
+    <script type="module" src="js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <script type="module" src="js/main.js"></script>
+    <main>
+        <div class="optimizer">
+            <div class="input-wrapper">
+                <label for="js-level-code">Level code</label>
+                <textarea id="js-level-code" placeholder="eg. A906ZZD1A0Q1B8A06A3A4A0J1A0G4A0ZR9H5A0Q"></textarea>
+                <button id="js-button-optimize">Optimize</button>
+            </div>
+
+            <div class="output-wrapper">
+                <label for="js-level-code-output">Optimized level code</label>
+                <textarea name="level-code-output" id="js-level-code-output" readonly onclick="this.focus();this.select()"></textarea>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
