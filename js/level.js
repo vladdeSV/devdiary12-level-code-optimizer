@@ -17,7 +17,7 @@ export class Level {
         let currentCount = 0;
         let currentShape = Shape.empty;
         let currentMaterial = Material.block;
-        this.tiles.forEach((value, index) => {
+        this.tiles.forEach((value) => {
             if (value.material !== currentMaterial || value.shape !== currentShape) {
                 if (currentCount > 0) {
                     levelString += letterFromNumber(currentCount);
@@ -76,7 +76,7 @@ export class Level {
         let tiles = []
         let characterAdded = false
 
-        ;[...levelCode].forEach(function (character, index) {
+        ;[...levelCode].forEach(function (character) {
 
             let letter = character;
             console.log("current letter is " + letter)
@@ -156,7 +156,7 @@ export class Level {
         tileCollection = tileCollection.slice(0, 9);
 
         // change the out of bound tile to be the exact same as the
-        tileCollection.forEach((value, index) => {
+        tileCollection.forEach((value) => {
             value[16].shape = value[15].shape;
             value[16].material = value[15].material;
             value[16].character = null;
