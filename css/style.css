@@ -53,10 +53,6 @@ div.input-wrapper, div.output-wrapper {
     margin: 2rem;
 }
 
-.debug-outline {
-    border: 1px dashed #911;
-}
-
 .optimizer {
     height: 100vh;
     display: flex;
