@@ -73,7 +73,7 @@ button:active {
     font-family: sans-serif;
 }
 
-.about > p {
+.about > p, .about li {
     line-height: 1.4em;
     color: #778;
 }
