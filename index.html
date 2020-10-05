@@ -20,19 +20,39 @@
 
             <div class="output-wrapper">
                 <label for="js-level-code-output">Optimized level code</label>
-                <textarea name="level-code-output" id="js-level-code-output" readonly onclick="this.focus();this.select()" placeholder="optimized level code will appear here"></textarea>
+                <textarea name="level-code-output" id="js-level-code-output" readonly onclick="this.focus();this.select()"
+                          placeholder="optimized level code will appear here"></textarea>
             </div>
             <hr>
             <details class="about">
                 <summary>About</summary>
                 <p>
-                    <i>Bunker Bustin'</i> is the "twelfth and final game in [of the] 12 months Dev Diary challenge", developed by Ben "Yahtzee" Croshaw (<a href="https://yzcroshaw.itch.io/bunker-bustin">link</a>).
-                    The game features a level editor, where a level can be shared via a string of characters, so called "level codes".
+                    <i>Bunker Bustin'</i> is the "twelfth and final game in [of the] 12 months Dev Diary challenge",
+                    developed by Ben "Yahtzee" Croshaw (<a href="https://yzcroshaw.itch.io/bunker-bustin">link</a>). The
+                    game features a level editor, where a level can be shared via a string of characters, so called "level
+                    codes".
                 </p>
                 <p>
-                    This small application allows you to optimize these level codes, shortening them while still being perfectly interpreted by the game.
-                    The optimization is done by correcting a flaw with the level code generation, and exploiting some quirks of the game's interpretation logic.
+                    This small application allows you to optimize these level codes, shortening them while still being
+                    perfectly interpreted by the game. The optimization is done by correcting a flaw with the level code
+                    generation, and exploiting some quirks of the game's interpretation logic.
                 </p>
+                <p>
+                    To understand what is being optimized, it is important to know how a level codes is generated, and what
+                    quirks exists in the level generation code. Yahtzee goes into great detail how the level code generation
+                    works in his <a href="https://youtu.be/a-n5wbeXCe8?t=101">final installment of the first Dev Diary video
+                    series</a>. However, it is never mentioned that the 16×9 level grid actually stored as a 17×10 grid.
+                    Optimizations can be performed due to this flaw.
+                </p>
+                <p>
+                    In summary, here are the optimization strategies:
+                </p>
+                <ul>
+                    <li>Discard the last row of the level.</li>
+                    <li>Replace the last tile of each row to the tile before it.</li>
+                    <li>Ignore material changes if a tile is empty.</li>
+                    <li>Disregard the first material and/or shape for for the first tiles if they are of grey material and/or empty tiles.</li>
+                </ul>
                 <p>
                     Source code for this tool can be found <a href="https://github.com/vladdeSV/devdiary12-level-code-optimizer">here</a>. Optimization tool created by <a href="https://twitter.com/vladdeSV">@vladdeSV</a>, in no affiliation with the game developer or game publisher.
                 </p>
