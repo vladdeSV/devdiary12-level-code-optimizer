@@ -18,6 +18,16 @@ export class Level {
         let currentShape = Shape.empty;
         let currentMaterial = Material.block;
         this.tiles.forEach((value) => {
+
+            if (value.character !== null) {
+                if (currentCount > 0) {
+                    levelString += letterFromNumber(currentCount);
+                }
+                currentCount = 0;
+
+                levelString += value.character;
+            }
+
             if (value.material !== currentMaterial || value.shape !== currentShape) {
                 if (currentCount > 0) {
                     levelString += letterFromNumber(currentCount);
@@ -33,15 +43,6 @@ export class Level {
                     levelString += value.material
                     currentMaterial = value.material;
                 }
-            }
-
-            if (value.character !== null) {
-                if (currentCount > 0) {
-                    levelString += letterFromNumber(currentCount);
-                }
-                currentCount = 0;
-
-                levelString += value.character;
             }
 
             ++currentCount;
@@ -74,7 +75,6 @@ export class Level {
 
         let currentTile = new Tile();
         let tiles = []
-        let characterAdded = false
 
         ;[...levelCode].forEach(function (character) {
 
@@ -101,27 +101,14 @@ export class Level {
             }
 
             if (isCharacterLetter) {
-                //fixme set character on current tile
-                console.log("appending character " + letter)
-                let newTile = new Tile();
-                newTile.material = currentTile.material;
-                newTile.shape = currentTile.shape;
-                newTile.character = letter;
-
-                tiles.push(newTile)
-
-                characterAdded = true;
+                console.log("preparing to add character " + letter)
+                currentTile.character = letter
 
                 return
             }
 
             if (isRepeatCountLetter) {
                 let letterValue = letter.codePointAt(0)
-
-                if (characterAdded) {
-                    letterValue -= 1;
-                    characterAdded = false
-                }
 
                 console.log("adding " + (letterValue - 64) + " tiles");
 
@@ -130,6 +117,10 @@ export class Level {
                     let newTile = new Tile();
                     newTile.material = currentTile.material;
                     newTile.shape = currentTile.shape;
+                    if (currentTile.character !== null) {
+                        newTile.character = currentTile.character
+                        currentTile.character = null
+                    }
 
                     tiles.push(newTile)
                 }
